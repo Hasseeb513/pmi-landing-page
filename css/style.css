@@ -1,0 +1,1008 @@
+/* ==========================================================================
+   TEREA Landing Page Stylesheet (Fluid REM Edition)
+   Pure CSS3 - Modern, Responsive, and Premium Design
+   ========================================================================== */
+
+/* Custom Local Fonts */
+@font-face {
+  font-family: 'IQOS';
+  src: url('../fonts/IQOS-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IQOS';
+  src: url('../fonts/IQOS-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IQOS Sans';
+  src: url('../fonts/IQOSSans-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IQOS Sans';
+  src: url('../fonts/IQOSSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IQOS Sans';
+  src: url('../fonts/IQOSSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IQOS Sans';
+  src: url('../fonts/IQOSSans-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IQOS Sans';
+  src: url('../fonts/IQOSSans-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IQOS Sans';
+  src: url('../fonts/IQOSSans-LightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IQOS Sans Arabic';
+  src: url('../fonts/IQOSSansArabic-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IQOS Sans Arabic';
+  src: url('../fonts/IQOSSansArabic-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IQOS Sans Arabic';
+  src: url('../fonts/IQOSSansArabic-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   1. CSS Variables & Reset
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color Palette */
+  --color-bg-white: #ffffff;
+  --color-bg-light: #fdfdfd;
+  --color-bg-dark: #1e2026;
+  --color-border-light: #efebee;
+  --color-border-dark: #2d2f36;
+  
+  /* Text Colors */
+  --color-text-main: #0e2238;
+  --color-text-muted: #626a72;
+  --color-text-light: #e0e2e5;
+  --color-text-white: #ffffff;
+  
+  /* Flavor Accent Colors */
+  --color-sienna: #8b1c1d;
+  --color-amber: #c46726;
+  --color-silver: #5c6b73;
+  --color-russet: #5e192d;
+  --color-gold: #c6a052;
+  --color-intensity-gray: #8c827a;
+  
+  /* Typography */
+  --font-family-sans: 'IQOS Sans', 'IQOS', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-body: 'IQOS Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Spacing & Transitions */
+  --transition-standard: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --max-width-content: 70rem; /* 1120px */
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%; /* Default browser size (usually 16px) */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family-body);
+  background-color: var(--color-bg-white);
+  color: var(--color-text-main);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-standard);
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 6.25rem; /* 24px */
+}
+
+/* --------------------------------------------------------------------------
+   2. Reusable Utility Styles & Components
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.94rem 2.38rem; 
+  font-family: var(--font-family-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 3.125rem; 
+  cursor: pointer;
+  transition: var(--transition-standard);
+  width: fit-content;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-text-main);
+  border: 0.0938rem solid #000000; 
+  margin-top: 1.44rem; 
+}
+
+.btn-outline:hover {
+  background-color: var(--color-bg-dark);
+  color: var(--color-bg-white);
+  border-color: var(--color-text-main);
+  box-shadow: 0 0.25rem 0.75rem rgba(14, 34, 56, 0.15); /* 0 4px 12px */
+}
+
+.btn-filled {
+  background-color: var(--color-bg-white);
+  color: var(--color-text-main);
+  border: 1px solid var(--color-bg-white);
+}
+
+.btn-filled:hover {
+  background-color: var(--color-bg-dark);
+  border: 1px solid var(--color-bg-white);
+  color: var(--color-bg-white);
+  
+}
+
+/* Intensity Indicator */
+.intensity-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* 8px */
+}
+
+.intensity-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem; /* 24px */
+  height: 2.5rem; /* 24px */
+  border: 5px solid rgba(153, 61, 58, 0.30);
+  border-radius: 50%;
+  font-family: var(--font-family-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #993D3A;
+  position: relative;
+  
+}
+
+.progress-circle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: conic-gradient(#993D3A 0deg 170deg, rgba(153, 61, 58, 0.5) 70deg 360deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-130deg);
+    span{
+      color: #993D3A;
+    }
+    &.silver-circle {
+        background: conic-gradient(
+            #505956 0deg 59deg,
+            #5059564D 59deg 360deg
+        );
+        span{
+            color: #505956;
+        }
+    }
+    &.amber-circle{
+        background: conic-gradient(
+            #B24623 0deg 90deg,
+            rgba(196, 103, 38, 0.30) 90deg 360deg
+        );
+        span{
+            color: #B24623;
+        }
+    }
+    &.teak-circle{
+       background: conic-gradient(#522040 0deg 170deg,  rgba(82, 32, 64, 0.5) 70deg 360deg);
+        span{
+            color: #522040;
+        }
+    }
+    &.turquoise-circle{
+        background: conic-gradient(
+            #00D1D2 0deg 59deg,
+            rgba(0, 209, 210, 0.4) 59deg 360deg
+        );
+        span{
+            color: #00D1D2;
+        }
+    }
+    &.gold-circle{
+        background: conic-gradient(
+            #9F8247 0deg 105deg,
+            rgba(159, 130, 71, 0.4) 105deg 360deg
+        );
+        span{
+            color: #9F8247;
+        }
+    }
+    &.russet-circle{
+        background: conic-gradient(
+            #63303C 0deg 330deg,
+            rgba(99, 48, 60, 0.4) 0deg 360deg
+        );
+        span{
+            color: #7E5376;
+        }
+    }
+    
+}
+.progress-circle.four-intensity {
+    background: conic-gradient(
+        #a5433e 0deg 42deg,
+        #ecd5d5 53deg 360deg
+    );
+}
+.progress-circle.silver-intensity {
+    background: conic-gradient(
+      #5F6A72 0deg 134deg,
+      rgba(121, 121, 121, 0.30) 0deg 360deg
+      );
+      span{
+        color: #797979;
+      }
+}
+.progress-circle.russet-intensity {
+    background: conic-gradient(
+      #63303C 0deg 210deg,
+      rgba(121, 121, 121, 0.30) 0deg 360deg
+      );
+      span{
+        color: #7E5376;
+      }
+}
+
+.inner-circle {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(130deg);
+}
+
+.inner-circle span {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #a5433e;
+    font-family: var(--font-family-sans);
+}
+
+
+.intensity-text {
+  font-family: var(--font-family-sans);
+  font-size: 0.937rem;
+  font-weight: 700;
+  color: #34303D;
+}
+
+/* Highlights */
+
+
+/* --------------------------------------------------------------------------
+   3. Header Styling
+   -------------------------------------------------------------------------- */
+.header {
+  width: 100%;
+  background-color: var(--color-bg-white);
+  padding: 1.34rem 0; 
+  position: relative;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 0 1.5rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.header-logo {
+  height: 2.38969rem; /* 28px */
+  width: auto;
+}
+
+.lang-switch-wrapper {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lang-switch-btn {
+  font-family: var(--font-family-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border: 0.0625rem solid var(--color-border-light);
+  padding: 0.35rem 0.85rem;
+  border-radius: 1.25rem;
+  background-color: var(--color-bg-white);
+  transition: var(--transition-standard);
+}
+
+.lang-switch-btn:hover {
+  color: var(--color-text-main);
+  border-color: var(--color-text-main);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.05);
+}
+
+/* --------------------------------------------------------------------------
+   4. Hero Section Styling
+   -------------------------------------------------------------------------- */
+.hero-section {
+  width: 100%;
+  overflow: hidden;
+  padding: 6rem 0 5.81rem 0;
+ 
+  position: relative;
+
+  &::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/hero-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+  }
+
+}
+[dir="rtl"] .hero-section::after {
+   transform: scaleX(-1); /* Flip the background image horizontally for RTL */
+  }
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  gap: 3.75rem; /* 60px */
+}
+
+.hero-visual-side {
+  flex: 1.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-bg-canvas {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-pack {
+  width: 100%;
+  height: auto;
+}
+.hero-pack img{
+  margin: 0 auto;
+}
+
+
+.hero-content-side {
+  flex: 0.9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.94rem;
+}
+
+.category-label {
+  font-family: var(--font-family-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.24rem;
+  color: var(--color-sienna);
+}
+
+.sub-heading {
+  font-family: var(--font-family-sans);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #5A5A64;
+  line-height: 1.3;
+  letter-spacing: -0.0175rem;
+}
+
+.main-heading {
+  font-family: var(--font-family-sans);
+  font-size: 3.25rem;
+  font-weight: 400;
+  color: var(--color-text-main);
+  line-height: 1.1;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: #77777F;
+  line-height: 1.8;
+  max-width: 26.25rem; /* 420px */
+  font-family: var(--font-family-sans);
+}
+
+/* --------------------------------------------------------------------------
+   5. More To Explore Section
+   -------------------------------------------------------------------------- */
+.explore-section {
+  width: 100%;
+  background-color: var(--color-bg-white);
+  padding: 5.5rem 0 2.19rem; /* 80px */
+  border-top: 0.0625rem solid var(--color-border-light); /* 1px */
+}
+.explore-container {
+  text-align: center;
+}
+.section-heading {
+  font-family: var(--font-family-sans);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #26262E;
+  letter-spacing: -0.0625rem;
+  margin-bottom: 4rem; 
+}
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+}
+.explore-card{
+  transition: all 0.3s ease-in-out;
+  border-left: 1px solid #E7E6E3;
+  &:first-child {
+    border-left: none;
+  }
+  
+}
+[dir="rtl"] .explore-card {
+    border-left: none;
+    border-right: 1px solid #E7E6E3;
+    &:first-child {
+      border-right: none;
+    }
+  }
+.explore-card:hover {
+  transform: translateY(-0.5rem); /* -8px */
+}
+.card-pack-image {
+  width: 100%;
+  height: auto;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. Banner Section Styling
+   -------------------------------------------------------------------------- */
+.banner-section {
+  width: 100%;
+  padding-top: 6rem; /* 60px */
+  padding-bottom: 6.25rem; /* 100px */
+  background-color: var(--color-bg-dark);
+  margin-top: 6.31rem; /* 101px */
+}
+[dir="rtl"] .banner-section  {
+  direction: ltr; /* Ensure text flows correctly in RTL */
+}
+.banner-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 45% | 55% */
+  align-items: center;
+  gap: 4rem;
+}
+
+.banner-visual-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner-packs-wrapper {
+  position: relative;
+  width: 100%;
+}
+.banner-packs-image {
+  width: 100%;
+  height: auto;
+}
+.banner-content-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.375rem;
+}
+[dir="rtl"] .banner-content-side  {
+  align-items: flex-end !important; /* Align content to the right for Arabic text */
+  padding-right: 5.19rem; /* 83px */
+}
+
+.banner-label {
+  font-family: var(--font-family-sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1625rem;
+  color: #F4C430;
+}
+[dir="rtl"] .banner-label  {
+  letter-spacing: 0;
+}
+
+.banner-heading {
+  font-family: var(--font-family-sans);
+  font-size: 3.125rem;
+  font-weight: 700;
+  color: #FEFCFA;
+  line-height: 1.15;
+}
+
+
+/* banner description */
+.banner-description {
+  font-size: 1.125rem;
+  color: #FEFCFA;
+  line-height: 1.575rem;
+  margin-bottom: 1rem;
+  max-width: 30rem; /* 480px */
+}
+[dir="rtl"] .banner-description  {
+ max-width: 100%; /* Allow full width for Arabic text */
+}
+
+/* --------------------------------------------------------------------------
+   7. Footer Section Styling
+   -------------------------------------------------------------------------- */
+.footer {
+  width: 100%;
+  background-color: var(--color-bg-white);
+  padding: 3.5rem 0 3.75rem 0; /* 60px 0 40px 0 */
+}
+
+
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 3.75rem; /* 60px */
+  margin-bottom: 2.25rem; /* 48px */
+}
+
+.footer-brand {
+  flex: 1.2;
+}
+
+.footer-logo {
+  height: 2.389rem;
+  width: 7.81rem;
+  margin-bottom: 0.8rem; /* 16px */
+}
+
+.footer-disclaimer {
+  font-size: 0.85rem;
+  color: #9A9AA1;
+  line-height: 1.5;
+  max-width: 15.625rem; /* 250px */
+  line-height: 1.6;
+}
+
+.footer-links-grid {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.875rem; /* 30px */
+}
+
+.footer-heading {
+  font-family: var(--font-family-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #26262E;
+  margin-bottom: 0.94rem; /* 16px */
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.69rem; /* 10px */
+}
+
+.footer-list a {
+  font-size: 0.875rem;
+  color: #5A5A64;
+}
+
+.footer-list a:hover {
+  color: var(--color-text-main);
+}
+
+.footer-bottom {
+  border-top: 0.0625rem solid #f0f0f0; /* 1px */
+  padding-top: 1.62rem; /* 26px */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.875rem; /* 30px */
+}
+
+.footer-warning-text {
+  font-size: 0.75rem;
+  color: #A0A0A7;
+  line-height: 1.4;
+  font-weight: 400;
+  font-family: var(--font-family-sans);
+  flex: 1.8;
+}
+
+.footer-copyright {
+  font-family: var(--font-family-sans);
+  font-size: 0.75rem;
+  color: #A0A0A7;
+  flex: 0.2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   8. Responsive Design / Media Queries
+   -------------------------------------------------------------------------- */
+
+/* Tablet Layout (Landscape & Portrait) */
+@media (max-width: 1024px) {
+  .hero-container {
+    gap: 2.5rem; /* 40px */
+  }
+  .main-heading {
+    font-size: 2.75rem;
+  }
+  .banner-heading {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .container{
+    padding: 0 3.25rem;
+  }
+  .footer-top {
+    flex-direction: column;
+    gap: 2.5rem; /* 40px */
+  }
+  .footer-brand {
+    max-width: 100%;
+  }
+  .banner-section{
+    padding-bottom: 0;
+    margin-top: 5rem;
+    padding-top: 0;
+  }
+  
+  .banner-card {
+    grid-template-columns: 1fr; /* Single column layout */
+    text-align: center;
+    padding: 2rem 1.875rem 1.875rem; /* 32px 30px 30px */
+    gap: 1.5rem; /* 30px */
+    padding-right: 0;
+    padding-left: 0;
+  }
+  
+  .banner-content-side {
+    align-items: center !important;
+    .banner-heading{
+      br{
+        display: none;
+      }
+    }
+  }
+  [dir="rtl"] .banner-content-side{
+    align-items: center !important;
+    padding-right: 0;
+  }
+  
+  .banner-description {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .banner-heading {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem; /* 24px */
+  }
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+  }
+  
+  .hero-visual-side {
+    width: 100%;
+  }
+  
+  .hero-bg-canvas {
+    max-width: 23.75rem; /* 380px */
+    margin: 0 auto;
+  }
+  
+  .hero-content-side {
+    align-items: center;
+  }
+  
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+  }
+  
+  .main-heading {
+    font-size: 2.5rem;
+  }
+  
+  .intensity-row {
+    justify-content: center;
+  }
+  .explore-section{
+    padding: 2rem 0 0; 
+  }
+  .explore-grid{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0;
+  }
+  .explore-card{
+    border-left: none;
+    border-bottom: 1px solid #E7E6E3;
+    padding-bottom: 3.12rem;
+  }
+  [dir="rtl"] .explore-card {
+    border-left: none;
+    border-right: 0;
+    &:first-child {
+      border-right: none;
+    }
+  }
+  .explore-card:hover {
+    transform: none;
+  }
+  .section-heading{
+    margin-bottom: 0;
+  }
+  
+  .footer{
+    padding-bottom: 1.75rem;
+  }
+  .footer-disclaimer{
+    max-width: 100%;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.9375rem; /* 15px */
+  }
+  
+  .footer-copyright {
+    text-align: center;
+  }
+  .card-dash{
+    margin: 0 auto 0.49rem auto; /* 8px auto */
+  }
+  .card-title, .card-description {
+    text-align: center;
+  }
+  .card-link{
+    margin: 0 auto;
+  }
+}
+
+/* Mobile Layout */
+@media (max-width: 480px) {
+  html {
+    font-size: 93.75%; /* Scaled baseline to 15px for fluid auto-scaling on tiny displays */
+  }
+  
+  .hero-section {
+    padding: 1.25rem 0 2.5rem 0; /* 20px 0 40px 0 */
+  }
+  
+  .sub-heading {
+    font-size: 1.35rem;
+  }
+  
+  .main-heading {
+    font-size: 2.15rem;
+  }
+  .section-heading {
+    font-size: 1.6rem;
+  }
+  .banner-heading {
+    font-size: 1.65rem;
+  }
+  .btn {
+    width: 100%;
+    padding: 0.875rem 1.5rem; /* 14px 24px */
+  }
+  
+  .footer-links-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem; /* 24px */
+  }
+  
+  .footer-heading {
+    margin-bottom: 0.625rem; /* 10px */
+  }
+}
+
+@media (max-width: 360px) {
+  .main-heading {
+    font-size: 1.85rem;
+  }
+  .banner-heading {
+    font-size: 1.45rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. Arabic Language (RTL) Layout Support
+   -------------------------------------------------------------------------- */
+[dir="rtl"], [lang="ar"] {
+  --font-family-sans: 'IQOS Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-body: 'IQOS Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .hero-content-side {
+  align-items: flex-start;
+}
+
+[dir="rtl"] .explore-grid {
+  text-align: right;
+}
+
+[dir="rtl"] .explore-card {
+  text-align: right;
+}
+
+[dir="rtl"] .card-link {
+  flex-direction: row-reverse;
+  gap: 0.25rem;
+}
+
+[dir="rtl"] .card-link .arrow {
+  display: inline-block;
+  transform: scaleX(-1); /* Flips arrow to point left */
+  transition: transform 0.2s ease;
+}
+
+[dir="rtl"] .explore-card:hover .card-link .arrow {
+  transform: scaleX(-1) translateX(0.25rem); /* Slide left in RTL direction */
+}
+
+[dir="rtl"] .banner-content-side {
+  text-align: right;
+  align-items: flex-start;
+}
+
+[dir="rtl"] .banner-packs-wrapper {
+  left: auto;
+  right: -0.625rem;
+}
+
+[dir="rtl"] .footer-brand {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-heading {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-list {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-copyright {
+  text-align: left;
+}
+
+/* Responsive RTL overrides */
+@media (max-width: 768px) {
+  [dir="rtl"] .hero-content-side,
+  [dir="rtl"] .banner-content-side,
+  [dir="rtl"] .footer-bottom {
+    align-items: center;
+    text-align: center;
+  }
+  [dir="rtl"] .footer-copyright {
+    text-align: center;
+  }
+}
